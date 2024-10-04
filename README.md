@@ -1,4 +1,5 @@
 # Projecte d'Enginyeria de Computadors (nota: 9)
+Autors: Pau Morillas i Roger Ortega
 
 ## Correcció MORSE (nota: 8)
 - [ ] Implementar un proces de hand-shacking per no perdre pulsos de botó. Fer-ho amb signals de premer i de deixar de premer.
