@@ -1,0 +1,89 @@
+
+State Machine - |DE1_USB_API|I2C_AV_Config:u10|mSetup_ST
+Name mSetup_ST.00 mSetup_ST.10 mSetup_ST.01 
+mSetup_ST.00 0 0 0 
+mSetup_ST.01 1 0 1 
+mSetup_ST.10 1 1 0 
+
+State Machine - |DE1_USB_API|CMD_Decode:u5|mSR_ST
+Name mSR_ST.101 mSR_ST.001 mSR_ST.010 mSR_ST.011 mSR_ST.100 mSR_ST.000 
+mSR_ST.000 0 0 0 0 0 0 
+mSR_ST.100 0 0 0 0 1 1 
+mSR_ST.011 0 0 0 1 0 1 
+mSR_ST.010 0 0 1 0 0 1 
+mSR_ST.001 0 1 0 0 0 1 
+mSR_ST.101 1 0 0 0 0 1 
+
+State Machine - |DE1_USB_API|CMD_Decode:u5|mSDR_ST
+Name mSDR_ST.101 mSDR_ST.001 mSDR_ST.010 mSDR_ST.011 mSDR_ST.100 mSDR_ST.000 
+mSDR_ST.000 0 0 0 0 0 0 
+mSDR_ST.100 0 0 0 0 1 1 
+mSDR_ST.011 0 0 0 1 0 1 
+mSDR_ST.010 0 0 1 0 0 1 
+mSDR_ST.001 0 1 0 0 0 1 
+mSDR_ST.101 1 0 0 0 0 1 
+
+State Machine - |DE1_USB_API|CMD_Decode:u5|mPS2_ST
+Name mPS2_ST.001 
+mPS2_ST.000 0 
+mPS2_ST.001 1 
+
+State Machine - |DE1_USB_API|CMD_Decode:u5|mFL_ST
+Name mFL_ST.111 mFL_ST.001 mFL_ST.010 mFL_ST.011 mFL_ST.100 mFL_ST.101 mFL_ST.110 mFL_ST.000 
+mFL_ST.000 0 0 0 0 0 0 0 0 
+mFL_ST.110 0 0 0 0 0 0 1 1 
+mFL_ST.101 0 0 0 0 0 1 0 1 
+mFL_ST.100 0 0 0 0 1 0 0 1 
+mFL_ST.011 0 0 0 1 0 0 0 1 
+mFL_ST.010 0 0 1 0 0 0 0 1 
+mFL_ST.001 0 1 0 0 0 0 0 1 
+mFL_ST.111 1 0 0 0 0 0 0 1 
+
+State Machine - |DE1_USB_API|ps2_keyboard:u4|m1_state
+Name m1_state.m1_tx_error_no_keyboard_ack m1_state.m1_rx_falling_edge_marker m1_state.m1_rx_rising_edge_marker m1_state.m1_rx_clk_l m1_state.m1_tx_reset_timer m1_state.m1_tx_force_clk_l m1_state.m1_tx_first_wait_clk_h m1_state.m1_tx_first_wait_clk_l m1_state.m1_tx_wait_clk_h m1_state.m1_tx_rising_edge_marker m1_state.m1_tx_clk_h m1_state.m1_tx_clk_l m1_state.m1_tx_wait_keyboard_ack m1_state.m1_tx_done_recovery m1_state.m1_rx_clk_h 
+m1_state.m1_rx_clk_h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+m1_state.m1_tx_done_recovery 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+m1_state.m1_tx_wait_keyboard_ack 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+m1_state.m1_tx_clk_l 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+m1_state.m1_tx_clk_h 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+m1_state.m1_tx_rising_edge_marker 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+m1_state.m1_tx_wait_clk_h 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+m1_state.m1_tx_first_wait_clk_l 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+m1_state.m1_tx_first_wait_clk_h 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_force_clk_l 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_reset_timer 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_rx_clk_l 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_rx_rising_edge_marker 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_rx_falling_edge_marker 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+m1_state.m1_tx_error_no_keyboard_ack 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE1_USB_API|Multi_Sdram:u3|Sdram_Multiplexer:u0|ST
+Name ST.11 ST.01 ST.10 ST.00 
+ST.00 0 0 0 0 
+ST.10 0 0 1 1 
+ST.01 0 1 0 1 
+ST.11 1 0 0 1 
+
+State Machine - |DE1_USB_API|Multi_Flash:u2|Flash_Controller:u1|ST
+Name ST.READ ST.P4_PRG ST.RESET ST.P1 ST.P2 ST.P3_PRG ST.P3_DEV ST.P3 ST.P4 ST.P5 ST.P6_BLK_ERA ST.P6_SEC_ERA ST.P6_CHP_ERA ST.IDEL 
+ST.IDEL 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ST.P6_CHP_ERA 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+ST.P6_SEC_ERA 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+ST.P6_BLK_ERA 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+ST.P5 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+ST.P4 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+ST.P3 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+ST.P3_DEV 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+ST.P3_PRG 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+ST.P2 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+ST.P1 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+ST.RESET 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+ST.P4_PRG 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+ST.READ 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE1_USB_API|Multi_Flash:u2|Flash_Multiplexer:u0|ST
+Name ST.11 ST.01 ST.10 ST.00 
+ST.00 0 0 0 0 
+ST.10 0 0 1 1 
+ST.01 0 1 0 1 
+ST.11 1 0 0 1 

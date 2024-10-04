@@ -1,0 +1,120 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity SRAMController is
+    port (clk         : in    std_logic;
+          -- se�ales para la placa de desarrollo
+          SRAM_ADDR   : out   std_logic_vector(17 downto 0);
+          SRAM_DQ     : inout std_logic_vector(15 downto 0);
+          SRAM_UB_N   : out   std_logic;
+          SRAM_LB_N   : out   std_logic;
+          SRAM_CE_N   : out   std_logic := '1';
+          SRAM_OE_N   : out   std_logic := '1';
+          SRAM_WE_N   : out   std_logic := '1';
+          -- se�ales internas del procesador
+          address     : in    std_logic_vector(15 downto 0) := "0000000000000000";
+          dataReaded  : out   std_logic_vector(15 downto 0);
+          dataToWrite : in    std_logic_vector(15 downto 0);
+          WR          : in    std_logic;
+          byte_m      : in    std_logic := '0');
+end SRAMController;
+
+architecture comportament of SRAMController is
+
+type estat_t is (write1, write2);
+signal estat: estat_t;
+signal wait1: std_logic := '0';
+
+	-- Build an enumerated type for the state machine
+	type state_type is (idle, escr, espera);
+
+	-- Register to hold the current state
+	signal state   : state_type:=idle;
+
+	signal permis_E: std_logic := '1';
+
+signal data_tmp: std_logic_vector (15 downto 0);
+
+	
+begin
+  
+  SRAM_ADDR <= "000" & address(15 downto 1); --Completem 17 bits per DE1
+
+--  SRAM_DQ <= "ZZZZZZZZZZZZZZZZ" when WR = '0' else
+--              dataToWrite(7 downto 0) & "ZZZZZZZZ" when WR='1' and address(0)='1' and byte_m='1' else
+--              "ZZZZZZZZ" & dataToWrite(7 downto 0)  when WR='1' and address(0)='0' and byte_m='1' else
+--              dataToWrite;
+  
+  SRAM_UB_N <= '1' when WR = '1' and byte_m = '1' and address(0) = '0' else '0';
+  SRAM_LB_N <= '1' when WR = '1' and byte_m = '1' and address(0) = '1' else '0';
+  SRAM_CE_N <= '0'; --Sempre a low
+  SRAM_OE_N <= '0'; --En read a Low(0) i en High no importa(X)
+--  SRAM_WE_N <= '0' when WR = '1' else '1'; -- En Write a low(0) i en Read a high(1)
+
+  dataReaded <= SRAM_DQ when WR = '0' and byte_m = '0' else
+                std_logic_vector(resize(signed(SRAM_DQ(7 downto 0)), 16)) when WR = '0' and address(0) = '0' and byte_m = '1' else
+                std_logic_vector(resize(signed(SRAM_DQ(15 downto 8)), 16))when WR = '0' and byte_m = '1' and address(0) = '1' else
+                x"DEAD"; --dataToWrite when byte_m = '0';
+ 
+-- Quartus II VHDL Template
+-- Four-State Moore State Machine
+
+-- A Moore machine's outputs are dependent only on the current state.
+-- The output is written only when the state changes.  (State
+-- transitions are synchronous.)
+
+	-- Logic to advance to the next state
+	process (clk)
+	begin
+		if (rising_edge(clk)) then
+			case state is
+				when idle=>
+					if WR = '1' then
+						state <= escr;
+					else
+						state <= idle;
+					end if;
+				when escr=>
+						state <= espera;
+				when espera=>
+					if WR = '1' then
+						state <= espera;
+					else
+						state <= idle;
+					end if;
+			end case;
+		end if;
+	end process;
+
+	-- Output depends solely on the current state
+	process (state, WR, byte_m, address(0))
+	begin
+		data_tmp<="ZZZZZZZZZZZZZZZZ"; 
+		case state is
+			when idle =>
+				 permis_E<= '1';
+			when escr =>
+				 permis_E<= '0';
+				 if WR='1' then
+					if byte_m='0' then
+						data_tmp<=dataToWrite;
+					else
+						if address(0)='1' then	
+							data_tmp<=dataToWrite(7 downto 0) & "ZZZZZZZZ";
+						else 
+							data_tmp<="ZZZZZZZZ" & dataToWrite(7 downto 0);
+						end if;
+					end if;
+				end if;
+			when espera =>
+				 permis_E<= '1';
+		end case;
+	end process;
+
+	SRAM_WE_N<=permis_E;
+	SRAM_DQ <=data_tmp;
+     
+
+end comportament;

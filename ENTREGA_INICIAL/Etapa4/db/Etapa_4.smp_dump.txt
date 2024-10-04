@@ -1,0 +1,6 @@
+
+State Machine - |sisa|MemoryController:mem_controller0|SRAMController:sram|state
+Name state.espera state.escr state.idle 
+state.idle 0 0 0 
+state.escr 0 1 1 
+state.espera 1 0 1 

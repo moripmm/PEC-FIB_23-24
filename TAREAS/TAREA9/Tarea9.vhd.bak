@@ -1,0 +1,19 @@
+LIBRARY iee;
+USE iee.std_logic_1164.all;
+
+ENTITY Tarea9 IS
+PORT( SW: IN std_logic_vector(2 DOWNTO 0);
+	   KEY: IN std_logic_vector(1 DOWNTO 0);
+		HEX0: OUT std_logic_vector(6 DOWNTO 0);
+		LEDR: OUT std_logic_vector(0 DOWNTO 0);
+		LEDG: OUT std_logic_vector(0 DOWNTO 0);
+		CLOCK_50: IN std_logic);
+END Tarea9;
+
+ARCHITECTURE Structure OF Tarea9 IS
+COMPONENT clock_generator
+	GENERIC(cicles: integer;
+				num_bits: integer);
+	PORT(CLOCK_50: IN std_logic;
+		  SIG: OUT std_logic);
+END COMPONENT;

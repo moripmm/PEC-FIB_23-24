@@ -1,0 +1,12 @@
+<preferences>
+  <systemtable>
+    <columns>
+      <connections
+        preferredWidth="15"
+        />
+      <irq
+        preferredWidth="15"
+        />
+    </columns>
+  </systemtable>
+</preferences>

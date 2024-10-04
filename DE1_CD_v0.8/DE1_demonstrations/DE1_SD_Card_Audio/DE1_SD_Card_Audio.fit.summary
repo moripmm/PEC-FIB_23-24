@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Aug 30 15:51:59 2007
+Quartus II Version : 7.1 Build 178 06/25/2007 SP 1 SJ Full Version
+Revision Name : DE1_SD_Card_Audio
+Top-level Entity Name : DE1_SD_Card_Audio
+Family : Cyclone II
+Device : EP2C20F484C7
+Timing Models : Final
+Total logic elements : 4,861 / 18,752 ( 26 % )
+    Total combinational functions : 4,123 / 18,752 ( 22 % )
+    Dedicated logic registers : 3,070 / 18,752 ( 16 % )
+Total registers : 3187
+Total pins : 287 / 315 ( 91 % )
+Total virtual pins : 0
+Total memory bits : 79,360 / 239,616 ( 33 % )
+Embedded Multiplier 9-bit elements : 4 / 52 ( 8 % )
+Total PLLs : 2 / 4 ( 50 % )

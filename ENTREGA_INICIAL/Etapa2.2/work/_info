@@ -1,0 +1,550 @@
+m255
+K3
+13
+cModel Technology
+dC:\altera\13.0sp1
+Ealu
+Z0 w1710853013
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\Users\roger\OneDrive\Escritorio\UNI\Q6\PEC\ENTREGA INICIAL\Etapa 2.2
+Z7 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/alu.vhd
+Z8 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/alu.vhd
+l0
+L6
+V[fKPYAIYTDeW]7OOZhd=:2
+Z9 OV;C;10.1d;51
+32
+Z10 !s108 1710952116.978000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/alu.vhd|
+Z12 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/alu.vhd|
+Z13 o-work work -2002 -explicit -O0
+Z14 tExplicit 1
+!s100 >1KT8dKPQfS0KA]i=YLNI2
+!i10b 1
+Astructure
+R1
+R2
+R3
+R4
+R5
+DEx4 work 3 alu 0 22 [fKPYAIYTDeW]7OOZhd=:2
+l15
+L14
+VVLM8oWde;Y?LI@ZMP1;zZ0
+R9
+32
+R10
+R11
+R12
+R13
+R14
+!s100 K;oiTa=TTCE02^XPFF9aM0
+!i10b 1
+Easync_64kx16
+Z15 w1392060219
+Z16 DPx4 work 15 package_utility 0 22 abW^FY0na:iFW@RR:Fofg0
+Z17 DPx4 work 14 package_timing 0 22 ]QljGNTG0EJQ?X:f3a>TX1
+Z18 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
+R2
+R3
+R4
+R5
+R6
+Z19 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/async_64Kx16.vhd
+Z20 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/async_64Kx16.vhd
+l0
+L22
+Vz7=:g106kSL^?zZa1_k1i2
+R9
+32
+Z21 !s108 1710952117.082000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/async_64Kx16.vhd|
+Z23 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/async_64Kx16.vhd|
+R13
+R14
+!s100 >mUGlnEO[;>2_SQSo6jO>0
+!i10b 1
+Abehave_arch
+R16
+R17
+R18
+R2
+R3
+R4
+R5
+DEx4 work 12 async_64kx16 0 22 z7=:g106kSL^?zZa1_k1i2
+l86
+L50
+VAJ7N2U7Oz?8b=Rk:ei_Pn2
+R9
+32
+R21
+R22
+R23
+R13
+R14
+!s100 ;PMTN0Wle:CWX6W[Y:e7_2
+!i10b 1
+Econtrol_l
+Z24 w1710853013
+R4
+R5
+R6
+Z25 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/control_l.vhd
+Z26 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/control_l.vhd
+l0
+L4
+VA^EzWJR[5;G^OmFWBcXzJ3
+R9
+32
+Z27 !s108 1710952117.172000
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/control_l.vhd|
+Z29 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/control_l.vhd|
+R13
+R14
+!s100 VzHG<FJOO;G1Ze1WI@Y=c2
+!i10b 1
+Astructure
+R4
+R5
+DEx4 work 9 control_l 0 22 A^EzWJR[5;G^OmFWBcXzJ3
+l30
+L20
+VB?iz6EPNg[]hIhPoLTPU_3
+R9
+32
+R27
+R28
+R29
+R13
+R14
+!s100 ;U^LdnMQjA2eEGC9SUgWg0
+!i10b 1
+Edatapath
+R24
+R1
+R4
+R5
+R6
+Z30 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/datapath.vhd
+Z31 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/datapath.vhd
+l0
+L5
+V<KkCMdkNEo@PzeR[Uaa_;2
+R9
+32
+Z32 !s108 1710952117.279000
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/datapath.vhd|
+Z34 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/datapath.vhd|
+R13
+R14
+!s100 n`2^O48n@_8L7ITPSc73W1
+!i10b 1
+Astructure
+R1
+R4
+R5
+DEx4 work 8 datapath 0 22 <KkCMdkNEo@PzeR[Uaa_;2
+l47
+L23
+VKIlh5eAS>lKF6]o1zfUl^3
+R9
+32
+R32
+R33
+R34
+R13
+R14
+!s100 NelK[RJ6MmL7m@[EFD3]X0
+!i10b 1
+Ememorycontroller
+R24
+R3
+R2
+R4
+R5
+R6
+Z35 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/MemoryController.vhd
+Z36 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/MemoryController.vhd
+l0
+L6
+VPLoMf0oj;RB<P=VUa6jkS2
+R9
+32
+Z37 !s108 1710952117.371000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/MemoryController.vhd|
+Z39 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/MemoryController.vhd|
+R13
+R14
+!s100 :K4;^k=AgYVOh=G_LZCm[3
+!i10b 1
+Acomportament
+R3
+R2
+R4
+R5
+DEx4 work 16 memorycontroller 0 22 PLoMf0oj;RB<P=VUa6jkS2
+l44
+L23
+V<PCChU;Co?6KS9MzkKRM53
+R9
+32
+R37
+R38
+R39
+R13
+R14
+!s100 We7YX3bb1[]i52zEaN@Za0
+!i10b 1
+Emulti
+R24
+R4
+R5
+R6
+Z40 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/multi.vhd
+Z41 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/multi.vhd
+l0
+L4
+V14NBh5f7z`nUY<]C1Om_?2
+R9
+32
+Z42 !s108 1710952117.481000
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/multi.vhd|
+Z44 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/multi.vhd|
+R13
+R14
+!s100 Vdh>l=a_@F>fVk^7NLZ710
+!i10b 1
+Astructure
+R4
+R5
+DEx4 work 5 multi 0 22 14NBh5f7z`nUY<]C1Om_?2
+l24
+L19
+V_fd<31>2^3m66VT;YUfEj0
+R9
+32
+R42
+R43
+R44
+R13
+R14
+!s100 HZ^XYZf8ITX1D1i4AK<gi3
+!i10b 1
+Ppackage_timing
+R18
+R3
+R2
+R4
+R5
+Z45 w1360278000
+R6
+Z46 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_timing.vhd
+Z47 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_timing.vhd
+l0
+L17
+V]QljGNTG0EJQ?X:f3a>TX1
+R9
+32
+Z48 !s108 1710952117.592000
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_timing.vhd|
+Z50 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_timing.vhd|
+R13
+R14
+!s100 7[5MEfJ`HFPK=zP7G66<i1
+!i10b 1
+Bbody
+R17
+R18
+R3
+R2
+R4
+R5
+l0
+L59
+VfeQXi[8kmeXD5NlH1A^G91
+R9
+32
+R48
+R49
+R50
+R13
+R14
+nbody
+!s100 [;aAVGm330N:B:ZYX350a1
+!i10b 1
+Ppackage_utility
+R18
+R2
+R4
+R5
+R45
+R6
+Z51 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_utility.vhd
+Z52 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_utility.vhd
+l0
+L15
+VabW^FY0na:iFW@RR:Fofg0
+R9
+32
+b1
+Z53 !s108 1710952117.726000
+Z54 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_utility.vhd|
+Z55 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/package_utility.vhd|
+R13
+R14
+!s100 n9b5dM?H5oLDz7geaYPkN1
+!i10b 1
+Bbody
+R16
+R18
+R2
+R4
+R5
+l0
+L22
+V1dAT5_E6[=Q4>0kGEF5@]3
+R9
+32
+R53
+R54
+R55
+R13
+R14
+nbody
+!s100 =i4<XdWXU:J]Ih;Vo<NgP3
+!i10b 1
+Eproc
+R24
+R4
+R5
+R6
+Z56 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/proc.vhd
+Z57 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/proc.vhd
+l0
+L4
+VE07>PX[gFbcoX5M:Gg6jG0
+R9
+32
+Z58 !s108 1710952117.843000
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/proc.vhd|
+Z60 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/proc.vhd|
+R13
+R14
+!s100 =[42X6i88AZ<:DNoAz`4`2
+!i10b 1
+Astructure
+R4
+R5
+DEx4 work 4 proc 0 22 E07>PX[gFbcoX5M:Gg6jG0
+l61
+L14
+V6BWV8KW6GPG>fBQXN0DPk0
+R9
+32
+R58
+R59
+R60
+R13
+R14
+!s100 DW[AMALJ0U_;eXGYcWdn@1
+!i10b 1
+Eregfile
+R24
+R2
+R3
+R4
+R5
+R6
+Z61 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/regfile.vhd
+Z62 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/regfile.vhd
+l0
+L6
+Vhnd2al3fiN[I^7670ZRFf3
+R9
+32
+Z63 !s108 1710952117.984000
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/regfile.vhd|
+Z65 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/regfile.vhd|
+R13
+R14
+!s100 Hf5IG7mj=ALcgna3[G3KP0
+!i10b 1
+Astructure
+R2
+R3
+R4
+R5
+DEx4 work 7 regfile 0 22 hnd2al3fiN[I^7670ZRFf3
+l21
+L17
+VOnk<Z8d[lcI]iTh0K`;ib0
+R9
+32
+R63
+R64
+R65
+R13
+R14
+!s100 OM3h9:bRKeef`:`L7V;9m2
+!i10b 1
+Esisa
+Z66 w1710927716
+R3
+R2
+R4
+R5
+R6
+Z67 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/sisa.vhd
+Z68 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/sisa.vhd
+l0
+L6
+V]?dIDgGAC;a^66WmSeQE?1
+R9
+32
+Z69 !s108 1710952118.128000
+Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/sisa.vhd|
+Z71 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/sisa.vhd|
+R13
+R14
+!s100 nilQ`j3cP3H9IL5fb^dZN0
+!i10b 1
+Astructure
+R3
+R2
+R4
+R5
+DEx4 work 4 sisa 0 22 ]?dIDgGAC;a^66WmSeQE?1
+l60
+L18
+VNK;je[7n>726;Y:ak4A710
+R9
+32
+R69
+R70
+R71
+R13
+R14
+!s100 eR9:0aWJ2mfA3<eD0?hn=1
+!i10b 1
+Esramcontroller
+Z72 w1710933225
+R1
+R2
+R3
+R4
+R5
+R6
+Z73 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/SRAMController.vhd
+Z74 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/SRAMController.vhd
+l0
+L6
+Vjjn044l<>f1hjRRH94@o;0
+R9
+32
+Z75 !s108 1710952118.257000
+Z76 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/SRAMController.vhd|
+Z77 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/SRAMController.vhd|
+R13
+R14
+!s100 @JzT4;4AjDB2f`Al^T98]3
+!i10b 1
+Acomportament
+R1
+R2
+R3
+R4
+R5
+DEx4 work 14 sramcontroller 0 22 jjn044l<>f1hjRRH94@o;0
+l41
+L24
+VT?h`FNQ;mN]MKK7MYMUjn2
+R9
+32
+R75
+R76
+R77
+R13
+R14
+!s100 <d;`@?ePmH7Zih<WU=gGB3
+!i10b 1
+Etest_sisa
+Z78 w1392060194
+R4
+R5
+R6
+Z79 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/test_sisa.vhd
+Z80 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/test_sisa.vhd
+l0
+L5
+VkAdhfn89W5`mY_=KPlfV]3
+R9
+32
+Z81 !s108 1710952118.384000
+Z82 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/test_sisa.vhd|
+Z83 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/test_sisa.vhd|
+R13
+R14
+!s100 688X_8OZ0BkG::B3fT5kf3
+!i10b 1
+Acomportament
+R4
+R5
+DEx4 work 9 test_sisa 0 22 kAdhfn89W5`mY_=KPlfV]3
+l64
+L8
+V576VBR9h2?HGXLVMC^Jh03
+!s100 XXGF@>=RbSKKJ5V169il^3
+R9
+32
+R81
+R82
+R83
+R13
+R14
+!i10b 1
+Eunidad_control
+R24
+R2
+R3
+R1
+R4
+R5
+R6
+Z84 8C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/unidad_control.vhd
+Z85 FC:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/unidad_control.vhd
+l0
+L6
+VckeOI?8oP7Uk^obI8;0a[3
+!s100 f>mK^S?naDBi[DDL9e;VH3
+R9
+32
+!i10b 1
+Z86 !s108 1710952118.494000
+Z87 !s90 -reportprogress|300|-work|work|-2002|-explicit|C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/unidad_control.vhd|
+Z88 !s107 C:/Users/roger/OneDrive/Escritorio/UNI/Q6/PEC/ENTREGA INICIAL/Etapa 2.2/unidad_control.vhd|
+R13
+R14
+Astructure
+R2
+R3
+R1
+R4
+R5
+Z89 DEx4 work 14 unidad_control 0 22 ckeOI?8oP7Uk^obI8;0a[3
+l68
+L27
+Z90 V=4DhIFT2Fb?Oo4V1[09i:3
+Z91 !s100 GGb7;QhIk6N]]<oaEf65A0
+R9
+32
+!i10b 1
+R86
+R87
+R88
+R13
+R14

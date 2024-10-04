@@ -1,0 +1,5 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+ENTITY driver4Display IS
+	PORT( caract : IN STD_LOGIC_VECTOR(15 DOWNTO 0));
+END driver4Display;

@@ -1,0 +1,599 @@
+Classic Timing Analyzer report for DE1_i2sound
+Thu Aug 30 15:41:14 2007
+Quartus II Version 7.1 Build 178 06/25/2007 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'KEY[0]'
+  6. Clock Setup: 'CLOCK_50'
+  7. tsu
+  8. tco
+  9. tpd
+ 10. th
+ 11. Timing Analyzer INI Usage
+ 12. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                     ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------------------+-----------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                             ; To                                      ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------------------+-----------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 2.965 ns                         ; KEY[0]                                           ; I2C_AV_Config:u1|mI2C_DATA[10]          ; --         ; CLOCK_50 ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 16.800 ns                        ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_SCLK                                ; CLOCK_50   ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 9.521 ns                         ; AUD_ADCDAT                                       ; AUD_DACLRCK                             ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -1.188 ns                        ; I2C_SDAT                                         ; I2C_AV_Config:u1|I2C_Controller:u0|ACK3 ; --         ; CLOCK_50 ; 0            ;
+; Clock Setup: 'CLOCK_50'      ; N/A   ; None          ; 210.66 MHz ( period = 4.747 ns ) ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SDO  ; CLOCK_50   ; CLOCK_50 ; 0            ;
+; Clock Setup: 'KEY[0]'        ; N/A   ; None          ; 328.73 MHz ( period = 3.042 ns ) ; VOL[2]                                           ; VOL[1]                                  ; KEY[0]     ; KEY[0]   ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                                  ;                                         ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------------------------+-----------------------------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Default hold multicycle                               ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                                                          ;
++--------------------------------------+--------------------+------------+------------------+---------------+--------------+-------------+-----------------------+---------------------+-----------+--------------+
+; Clock Node Name                      ; Clock Setting Name ; Type       ; Fmax Requirement ; Early Latency ; Late Latency ; Based on    ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset    ; Phase offset ;
++--------------------------------------+--------------------+------------+------------------+---------------+--------------+-------------+-----------------------+---------------------+-----------+--------------+
+; PLL:u0|altpll:altpll_component|_clk0 ;                    ; PLL output ; 18.41 MHz        ; 0.000 ns      ; 0.000 ns     ; CLOCK_27[0] ; 15                    ; 22                  ; -2.443 ns ;              ;
+; CLOCK_27[0]                          ;                    ; User Pin   ; 27.0 MHz         ; 0.000 ns      ; 0.000 ns     ; --          ; N/A                   ; N/A                 ; N/A       ;              ;
+; KEY[0]                               ;                    ; User Pin   ; None             ; 0.000 ns      ; 0.000 ns     ; --          ; N/A                   ; N/A                 ; N/A       ;              ;
+; CLOCK_50                             ;                    ; User Pin   ; None             ; 0.000 ns      ; 0.000 ns     ; --          ; N/A                   ; N/A                 ; N/A       ;              ;
++--------------------------------------+--------------------+------------+------------------+---------------+--------------+-------------+-----------------------+---------------------+-----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'KEY[0]'                                                                                                                                                                ;
++-------+------------------------------------------------+--------+--------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From   ; To     ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+--------+--------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 328.73 MHz ( period = 3.042 ns )               ; VOL[2] ; VOL[0] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.803 ns                ;
+; N/A   ; 328.73 MHz ( period = 3.042 ns )               ; VOL[2] ; VOL[6] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.803 ns                ;
+; N/A   ; 328.73 MHz ( period = 3.042 ns )               ; VOL[2] ; VOL[4] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.803 ns                ;
+; N/A   ; 328.73 MHz ( period = 3.042 ns )               ; VOL[2] ; VOL[5] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.803 ns                ;
+; N/A   ; 328.73 MHz ( period = 3.042 ns )               ; VOL[2] ; VOL[2] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.803 ns                ;
+; N/A   ; 328.73 MHz ( period = 3.042 ns )               ; VOL[2] ; VOL[3] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.803 ns                ;
+; N/A   ; 328.73 MHz ( period = 3.042 ns )               ; VOL[2] ; VOL[1] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.803 ns                ;
+; N/A   ; 347.10 MHz ( period = 2.881 ns )               ; VOL[3] ; VOL[0] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.642 ns                ;
+; N/A   ; 347.10 MHz ( period = 2.881 ns )               ; VOL[3] ; VOL[6] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.642 ns                ;
+; N/A   ; 347.10 MHz ( period = 2.881 ns )               ; VOL[3] ; VOL[4] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.642 ns                ;
+; N/A   ; 347.10 MHz ( period = 2.881 ns )               ; VOL[3] ; VOL[5] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.642 ns                ;
+; N/A   ; 347.10 MHz ( period = 2.881 ns )               ; VOL[3] ; VOL[2] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.642 ns                ;
+; N/A   ; 347.10 MHz ( period = 2.881 ns )               ; VOL[3] ; VOL[3] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.642 ns                ;
+; N/A   ; 347.10 MHz ( period = 2.881 ns )               ; VOL[3] ; VOL[1] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 2.642 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[6] ; VOL[0] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.912 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[6] ; VOL[6] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.912 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[6] ; VOL[4] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.912 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[6] ; VOL[5] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.912 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[6] ; VOL[2] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.912 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[6] ; VOL[3] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.912 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[6] ; VOL[1] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.912 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[0] ; VOL[6] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.872 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[0] ; VOL[5] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.792 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[1] ; VOL[6] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.748 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[4] ; VOL[0] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.721 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[4] ; VOL[6] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.721 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[4] ; VOL[4] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.721 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[4] ; VOL[5] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.721 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[4] ; VOL[2] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.721 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[4] ; VOL[3] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.721 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[4] ; VOL[1] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.721 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[0] ; VOL[4] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.712 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[1] ; VOL[5] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.668 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[0] ; VOL[3] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.632 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[1] ; VOL[4] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.588 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[5] ; VOL[0] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[5] ; VOL[6] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[5] ; VOL[4] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[5] ; VOL[5] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[5] ; VOL[2] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[5] ; VOL[3] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[5] ; VOL[1] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.565 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[0] ; VOL[2] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.552 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[1] ; VOL[3] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.508 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[0] ; VOL[1] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.472 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[1] ; VOL[2] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.428 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[0] ; VOL[0] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 1.042 ns                ;
+; N/A   ; Restricted to 405.02 MHz ( period = 2.469 ns ) ; VOL[1] ; VOL[1] ; KEY[0]     ; KEY[0]   ; None                        ; None                      ; 0.966 ns                ;
++-------+------------------------------------------------+--------+--------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK_50'                                                                                                                                                                                                                                                                                         ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                             ; To                                               ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 210.66 MHz ( period = 4.747 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.512 ns                ;
+; N/A                                     ; 232.29 MHz ( period = 4.305 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.070 ns                ;
+; N/A                                     ; 237.36 MHz ( period = 4.213 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[7]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.973 ns                ;
+; N/A                                     ; 237.36 MHz ( period = 4.213 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[11]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.973 ns                ;
+; N/A                                     ; 237.36 MHz ( period = 4.213 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[0]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.973 ns                ;
+; N/A                                     ; 237.36 MHz ( period = 4.213 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[9]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.973 ns                ;
+; N/A                                     ; 237.36 MHz ( period = 4.213 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[10]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.973 ns                ;
+; N/A                                     ; 238.15 MHz ( period = 4.199 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[12]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.959 ns                ;
+; N/A                                     ; 239.01 MHz ( period = 4.184 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[7]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.944 ns                ;
+; N/A                                     ; 239.01 MHz ( period = 4.184 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[11]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.944 ns                ;
+; N/A                                     ; 239.01 MHz ( period = 4.184 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[0]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.944 ns                ;
+; N/A                                     ; 239.01 MHz ( period = 4.184 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[9]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.944 ns                ;
+; N/A                                     ; 239.01 MHz ( period = 4.184 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[10]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.944 ns                ;
+; N/A                                     ; 239.81 MHz ( period = 4.170 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[12]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.930 ns                ;
+; N/A                                     ; 243.55 MHz ( period = 4.106 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD[10]        ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.867 ns                ;
+; N/A                                     ; 248.51 MHz ( period = 4.024 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[1]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.788 ns                ;
+; N/A                                     ; 248.51 MHz ( period = 4.024 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.788 ns                ;
+; N/A                                     ; 248.51 MHz ( period = 4.024 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[7]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.788 ns                ;
+; N/A                                     ; 248.51 MHz ( period = 4.024 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[2]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.788 ns                ;
+; N/A                                     ; 248.51 MHz ( period = 4.024 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[9]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.788 ns                ;
+; N/A                                     ; 251.00 MHz ( period = 3.984 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[7]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 251.00 MHz ( period = 3.984 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[11]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 251.00 MHz ( period = 3.984 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[0]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 251.00 MHz ( period = 3.984 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[9]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 251.00 MHz ( period = 3.984 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[10]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.744 ns                ;
+; N/A                                     ; 251.89 MHz ( period = 3.970 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[12]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.730 ns                ;
+; N/A                                     ; 254.52 MHz ( period = 3.929 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD[4]         ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.690 ns                ;
+; N/A                                     ; 255.17 MHz ( period = 3.919 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[1]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 255.17 MHz ( period = 3.919 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[3]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 255.17 MHz ( period = 3.919 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[2]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 255.17 MHz ( period = 3.919 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[5]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 255.17 MHz ( period = 3.919 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[6]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 255.17 MHz ( period = 3.919 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_DATA[4]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.680 ns                ;
+; N/A                                     ; 255.75 MHz ( period = 3.910 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.671 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[1]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[3]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[2]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[5]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[6]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.07 MHz ( period = 3.890 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_DATA[4]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.651 ns                ;
+; N/A                                     ; 257.73 MHz ( period = 3.880 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[7]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.640 ns                ;
+; N/A                                     ; 257.73 MHz ( period = 3.880 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[11]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.640 ns                ;
+; N/A                                     ; 257.73 MHz ( period = 3.880 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[0]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.640 ns                ;
+; N/A                                     ; 257.73 MHz ( period = 3.880 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[9]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.640 ns                ;
+; N/A                                     ; 257.73 MHz ( period = 3.880 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[10]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.640 ns                ;
+; N/A                                     ; 258.67 MHz ( period = 3.866 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[12]                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.626 ns                ;
+; N/A                                     ; 259.00 MHz ( period = 3.861 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[1]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.625 ns                ;
+; N/A                                     ; 259.00 MHz ( period = 3.861 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.625 ns                ;
+; N/A                                     ; 259.00 MHz ( period = 3.861 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[7]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.625 ns                ;
+; N/A                                     ; 259.00 MHz ( period = 3.861 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[2]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.625 ns                ;
+; N/A                                     ; 259.00 MHz ( period = 3.861 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[9]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.625 ns                ;
+; N/A                                     ; 261.10 MHz ( period = 3.830 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.591 ns                ;
+; N/A                                     ; 261.57 MHz ( period = 3.823 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.584 ns                ;
+; N/A                                     ; 263.57 MHz ( period = 3.794 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.559 ns                ;
+; N/A                                     ; 264.83 MHz ( period = 3.776 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[12]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.541 ns                ;
+; N/A                                     ; 264.83 MHz ( period = 3.776 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[3]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.541 ns                ;
+; N/A                                     ; 264.83 MHz ( period = 3.776 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[10]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.541 ns                ;
+; N/A                                     ; 264.83 MHz ( period = 3.776 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[11]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.541 ns                ;
+; N/A                                     ; 265.32 MHz ( period = 3.769 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[1]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.533 ns                ;
+; N/A                                     ; 265.32 MHz ( period = 3.769 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.533 ns                ;
+; N/A                                     ; 265.32 MHz ( period = 3.769 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[7]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.533 ns                ;
+; N/A                                     ; 265.32 MHz ( period = 3.769 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[2]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.533 ns                ;
+; N/A                                     ; 265.32 MHz ( period = 3.769 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[9]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.533 ns                ;
+; N/A                                     ; 266.45 MHz ( period = 3.753 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[4]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.518 ns                ;
+; N/A                                     ; 266.45 MHz ( period = 3.753 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[5]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.518 ns                ;
+; N/A                                     ; 266.45 MHz ( period = 3.753 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[6]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.518 ns                ;
+; N/A                                     ; 266.67 MHz ( period = 3.750 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.511 ns                ;
+; N/A                                     ; 267.17 MHz ( period = 3.743 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.504 ns                ;
+; N/A                                     ; 270.27 MHz ( period = 3.700 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]         ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.462 ns                ;
+; N/A                                     ; 270.56 MHz ( period = 3.696 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.461 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[1]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.451 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[3]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.451 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[2]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.451 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[5]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.451 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[6]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.451 ns                ;
+; N/A                                     ; 271.00 MHz ( period = 3.690 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[1]                    ; I2C_AV_Config:u1|mI2C_DATA[4]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.451 ns                ;
+; N/A                                     ; 272.48 MHz ( period = 3.670 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.431 ns                ;
+; N/A                                     ; 273.00 MHz ( period = 3.663 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.424 ns                ;
+; N/A                                     ; 274.80 MHz ( period = 3.639 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.400 ns                ;
+; N/A                                     ; 276.78 MHz ( period = 3.613 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[12]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.378 ns                ;
+; N/A                                     ; 276.78 MHz ( period = 3.613 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[3]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.378 ns                ;
+; N/A                                     ; 276.78 MHz ( period = 3.613 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[10]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.378 ns                ;
+; N/A                                     ; 276.78 MHz ( period = 3.613 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[11]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.378 ns                ;
+; N/A                                     ; 278.47 MHz ( period = 3.591 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD[11]        ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.352 ns                ;
+; N/A                                     ; 278.55 MHz ( period = 3.590 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.351 ns                ;
+; N/A                                     ; 278.55 MHz ( period = 3.590 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[4]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.355 ns                ;
+; N/A                                     ; 278.55 MHz ( period = 3.590 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[5]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.355 ns                ;
+; N/A                                     ; 278.55 MHz ( period = 3.590 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[6]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.355 ns                ;
+; N/A                                     ; 278.86 MHz ( period = 3.586 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[1]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.347 ns                ;
+; N/A                                     ; 278.86 MHz ( period = 3.586 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[3]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.347 ns                ;
+; N/A                                     ; 278.86 MHz ( period = 3.586 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[2]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.347 ns                ;
+; N/A                                     ; 278.86 MHz ( period = 3.586 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[5]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.347 ns                ;
+; N/A                                     ; 278.86 MHz ( period = 3.586 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[6]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.347 ns                ;
+; N/A                                     ; 278.86 MHz ( period = 3.586 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[0]                    ; I2C_AV_Config:u1|mI2C_DATA[4]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.347 ns                ;
+; N/A                                     ; 279.10 MHz ( period = 3.583 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.344 ns                ;
+; N/A                                     ; 280.98 MHz ( period = 3.559 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.320 ns                ;
+; N/A                                     ; 284.01 MHz ( period = 3.521 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[12]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.286 ns                ;
+; N/A                                     ; 284.01 MHz ( period = 3.521 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[3]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.286 ns                ;
+; N/A                                     ; 284.01 MHz ( period = 3.521 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[10]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.286 ns                ;
+; N/A                                     ; 284.01 MHz ( period = 3.521 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[11]        ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.286 ns                ;
+; N/A                                     ; 284.74 MHz ( period = 3.512 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CTRL_CLK                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.684 ns                ;
+; N/A                                     ; 285.47 MHz ( period = 3.503 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.264 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[11]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[15]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[13]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[12]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[10]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[8]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[7]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[6]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[5]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[2]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[1]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; I2C_AV_Config:u1|mI2C_CLK_DIV[0]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.259 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[4]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.263 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[5]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.263 ns                ;
+; N/A                                     ; 285.88 MHz ( period = 3.498 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[6]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.263 ns                ;
+; N/A                                     ; 287.44 MHz ( period = 3.479 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.240 ns                ;
+; N/A                                     ; 289.10 MHz ( period = 3.459 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_AV_Config:u1|I2C_Controller:u0|ACK2          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.224 ns                ;
+; N/A                                     ; 291.63 MHz ( period = 3.429 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|ACK2          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.194 ns                ;
+; N/A                                     ; 291.97 MHz ( period = 3.425 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.186 ns                ;
+; N/A                                     ; 293.69 MHz ( period = 3.405 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[1]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.169 ns                ;
+; N/A                                     ; 293.69 MHz ( period = 3.405 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.169 ns                ;
+; N/A                                     ; 293.69 MHz ( period = 3.405 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[7]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.169 ns                ;
+; N/A                                     ; 293.69 MHz ( period = 3.405 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[2]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.169 ns                ;
+; N/A                                     ; 293.69 MHz ( period = 3.405 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[9]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.169 ns                ;
+; N/A                                     ; 294.12 MHz ( period = 3.400 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.161 ns                ;
+; N/A                                     ; 294.20 MHz ( period = 3.399 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.160 ns                ;
+; N/A                                     ; 294.38 MHz ( period = 3.397 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.158 ns                ;
+; N/A                                     ; 296.65 MHz ( period = 3.371 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.132 ns                ;
+; N/A                                     ; 296.91 MHz ( period = 3.368 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.129 ns                ;
+; N/A                                     ; 298.95 MHz ( period = 3.345 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.106 ns                ;
+; N/A                                     ; 299.04 MHz ( period = 3.344 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.105 ns                ;
+; N/A                                     ; 300.21 MHz ( period = 3.331 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CTRL_CLK                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.503 ns                ;
+; N/A                                     ; 301.30 MHz ( period = 3.319 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.080 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[11]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[15]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[13]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[12]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[10]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[8]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[7]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[6]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[5]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[2]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[1]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 301.48 MHz ( period = 3.317 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[0]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.078 ns                ;
+; N/A                                     ; 302.39 MHz ( period = 3.307 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CTRL_CLK                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.479 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[11]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[14]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[15]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[13]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[12]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[10]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[8]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[7]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[6]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[5]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[2]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[1]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 303.67 MHz ( period = 3.293 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[0]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.054 ns                ;
+; N/A                                     ; 304.79 MHz ( period = 3.281 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[1]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.045 ns                ;
+; N/A                                     ; 304.79 MHz ( period = 3.281 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.045 ns                ;
+; N/A                                     ; 304.79 MHz ( period = 3.281 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[7]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.045 ns                ;
+; N/A                                     ; 304.79 MHz ( period = 3.281 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[2]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.045 ns                ;
+; N/A                                     ; 304.79 MHz ( period = 3.281 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SD[9]         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.045 ns                ;
+; N/A                                     ; 305.16 MHz ( period = 3.277 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mI2C_GO                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.034 ns                ;
+; N/A                                     ; 305.16 MHz ( period = 3.277 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mSetup_ST.10                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.034 ns                ;
+; N/A                                     ; 305.16 MHz ( period = 3.277 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mSetup_ST.01                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.034 ns                ;
+; N/A                                     ; 305.16 MHz ( period = 3.277 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[3]                    ; I2C_AV_Config:u1|mSetup_ST.00                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.034 ns                ;
+; N/A                                     ; 306.28 MHz ( period = 3.265 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.026 ns                ;
+; N/A                                     ; 306.37 MHz ( period = 3.264 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.025 ns                ;
+; N/A                                     ; 307.69 MHz ( period = 3.250 ns )                    ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; I2C_AV_Config:u1|I2C_Controller:u0|ACK2          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.015 ns                ;
+; N/A                                     ; 307.88 MHz ( period = 3.248 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mI2C_GO                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.005 ns                ;
+; N/A                                     ; 307.88 MHz ( period = 3.248 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mSetup_ST.10                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.005 ns                ;
+; N/A                                     ; 307.88 MHz ( period = 3.248 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mSetup_ST.01                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.005 ns                ;
+; N/A                                     ; 307.88 MHz ( period = 3.248 ns )                    ; I2C_AV_Config:u1|LUT_INDEX[2]                    ; I2C_AV_Config:u1|mSetup_ST.00                    ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.005 ns                ;
+; N/A                                     ; 311.53 MHz ( period = 3.210 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CTRL_CLK                   ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.382 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[12]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[10]                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[8]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[7]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[6]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[3]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[4]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[5]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[2]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; N/A                                     ; 312.89 MHz ( period = 3.196 ns )                    ; I2C_AV_Config:u1|mI2C_CLK_DIV[9]                 ; I2C_AV_Config:u1|mI2C_CLK_DIV[1]                 ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 2.957 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                  ;                                                  ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+--------------------------------------------------+--------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; tsu                                                                                                 ;
++-------+--------------+------------+----------+-------------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From     ; To                                        ; To Clock ;
++-------+--------------+------------+----------+-------------------------------------------+----------+
+; N/A   ; None         ; 2.965 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[7]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.965 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[11]            ; CLOCK_50 ;
+; N/A   ; None         ; 2.965 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[0]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.965 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[9]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.965 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[10]            ; CLOCK_50 ;
+; N/A   ; None         ; 2.951 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[12]            ; CLOCK_50 ;
+; N/A   ; None         ; 2.889 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[1]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.889 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.889 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[7]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.889 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[2]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.889 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[9]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.671 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[1]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.671 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[3]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.671 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[2]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.671 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[5]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.671 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[6]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.671 ns   ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[4]             ; CLOCK_50 ;
+; N/A   ; None         ; 2.641 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[12] ; CLOCK_50 ;
+; N/A   ; None         ; 2.641 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[3]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.641 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[10] ; CLOCK_50 ;
+; N/A   ; None         ; 2.641 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[11] ; CLOCK_50 ;
+; N/A   ; None         ; 2.618 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[4]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.618 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[5]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.618 ns   ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[6]  ; CLOCK_50 ;
+; N/A   ; None         ; 2.499 ns   ; I2C_SDAT ; I2C_AV_Config:u1|I2C_Controller:u0|ACK2   ; CLOCK_50 ;
+; N/A   ; None         ; 1.928 ns   ; I2C_SDAT ; I2C_AV_Config:u1|I2C_Controller:u0|ACK1   ; CLOCK_50 ;
+; N/A   ; None         ; 1.436 ns   ; I2C_SDAT ; I2C_AV_Config:u1|I2C_Controller:u0|ACK3   ; CLOCK_50 ;
++-------+--------------+------------+----------+-------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                           ;
++-------+--------------+------------+--------------------------------------------------+----------+-------------+
+; Slack ; Required tco ; Actual tco ; From                                             ; To       ; From Clock  ;
++-------+--------------+------------+--------------------------------------------------+----------+-------------+
+; N/A   ; None         ; 16.800 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1] ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 16.516 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[2] ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 16.298 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[0] ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 16.181 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3] ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 15.743 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[4] ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 15.016 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[5] ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 14.877 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SCLK          ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 12.925 ns  ; I2C_AV_Config:u1|I2C_Controller:u0|SDO           ; I2C_SDAT ; CLOCK_50    ;
+; N/A   ; None         ; 11.382 ns  ; I2C_AV_Config:u1|mI2C_CTRL_CLK                   ; I2C_SCLK ; CLOCK_50    ;
+; N/A   ; None         ; 9.781 ns   ; VOL[6]                                           ; LEDG[6]  ; KEY[0]      ;
+; N/A   ; None         ; 9.777 ns   ; VOL[3]                                           ; LEDG[3]  ; KEY[0]      ;
+; N/A   ; None         ; 9.774 ns   ; VOL[2]                                           ; LEDG[2]  ; KEY[0]      ;
+; N/A   ; None         ; 9.433 ns   ; VOL[5]                                           ; LEDG[5]  ; KEY[0]      ;
+; N/A   ; None         ; 8.933 ns   ; VOL[0]                                           ; LEDG[0]  ; KEY[0]      ;
+; N/A   ; None         ; 8.895 ns   ; VOL[1]                                           ; LEDG[1]  ; KEY[0]      ;
+; N/A   ; None         ; 8.669 ns   ; VOL[4]                                           ; LEDG[4]  ; KEY[0]      ;
+; N/A   ; None         ; 2.905 ns   ; PLL:u0|altpll:altpll_component|_clk0             ; AUD_XCK  ; CLOCK_27[0] ;
++-------+--------------+------------+--------------------------------------------------+----------+-------------+
+
+
++------------------------------------------------------------------------+
+; tpd                                                                    ;
++-------+-------------------+-----------------+------------+-------------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From       ; To          ;
++-------+-------------------+-----------------+------------+-------------+
+; N/A   ; None              ; 9.521 ns        ; AUD_ADCDAT ; AUD_DACLRCK ;
++-------+-------------------+-----------------+------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; th                                                                                                        ;
++---------------+-------------+-----------+----------+-------------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From     ; To                                        ; To Clock ;
++---------------+-------------+-----------+----------+-------------------------------------------+----------+
+; N/A           ; None        ; -1.188 ns ; I2C_SDAT ; I2C_AV_Config:u1|I2C_Controller:u0|ACK3   ; CLOCK_50 ;
+; N/A           ; None        ; -1.680 ns ; I2C_SDAT ; I2C_AV_Config:u1|I2C_Controller:u0|ACK1   ; CLOCK_50 ;
+; N/A           ; None        ; -2.251 ns ; I2C_SDAT ; I2C_AV_Config:u1|I2C_Controller:u0|ACK2   ; CLOCK_50 ;
+; N/A           ; None        ; -2.370 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[4]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.370 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[5]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.370 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[6]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.393 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[12] ; CLOCK_50 ;
+; N/A           ; None        ; -2.393 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[3]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.393 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[10] ; CLOCK_50 ;
+; N/A           ; None        ; -2.393 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[11] ; CLOCK_50 ;
+; N/A           ; None        ; -2.423 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[1]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.423 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[3]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.423 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[2]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.423 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[5]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.423 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[6]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.423 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[4]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.641 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[1]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.641 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[0]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.641 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[7]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.641 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[2]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.641 ns ; KEY[0]   ; I2C_AV_Config:u1|I2C_Controller:u0|SD[9]  ; CLOCK_50 ;
+; N/A           ; None        ; -2.703 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[12]            ; CLOCK_50 ;
+; N/A           ; None        ; -2.717 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[7]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.717 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[11]            ; CLOCK_50 ;
+; N/A           ; None        ; -2.717 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[0]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.717 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[9]             ; CLOCK_50 ;
+; N/A           ; None        ; -2.717 ns ; KEY[0]   ; I2C_AV_Config:u1|mI2C_DATA[10]            ; CLOCK_50 ;
++---------------+-------------+-----------+----------+-------------------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer INI Usage                                                                                                                 ;
++----------------------+--------------------------------------------------------------------------------------------------------------------+
+; Option               ; Usage                                                                                                              ;
++----------------------+--------------------------------------------------------------------------------------------------------------------+
+; Initialization file: ; c:/altera/71/quartus/bin/quartus.ini                                                                               ;
+; dev_password         ; e81f0e65b8afc1da24522b894c886f598ff5e3fafae3453dd1029e508011004342234235215526025211557545361520042000410042555455 ;
++----------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 7.1 Build 178 06/25/2007 Service Pack 1 SJ Full Version
+    Info: Processing started: Thu Aug 30 15:41:12 2007
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off DE1_i2sound -c DE1_i2sound --timing_analysis_only
+Warning: Clock latency analysis for PLL offsets is supported for the current device family, but is not enabled
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "KEY[0]" is an undefined clock
+    Info: Assuming node "CLOCK_50" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "I2C_AV_Config:u1|mI2C_CTRL_CLK" as buffer
+Info: Found timing assignments -- calculating delays
+Info: No valid register-to-register data paths exist for clock "PLL:u0|altpll:altpll_component|_clk0"
+Info: No valid register-to-register data paths exist for clock "CLOCK_27[0]"
+Info: Clock "KEY[0]" has Internal fmax of 328.73 MHz between source register "VOL[2]" and destination register "VOL[0]" (period= 3.042 ns)
+    Info: + Longest register to register delay is 2.803 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X23_Y4_N21; Fanout = 5; REG Node = 'VOL[2]'
+        Info: 2: + IC(0.400 ns) + CELL(0.322 ns) = 0.722 ns; Loc. = LCCOMB_X23_Y4_N2; Fanout = 1; COMB Node = 'VOL[5]~120'
+        Info: 3: + IC(0.536 ns) + CELL(0.545 ns) = 1.803 ns; Loc. = LCCOMB_X23_Y4_N10; Fanout = 7; COMB Node = 'LessThan0~61'
+        Info: 4: + IC(0.260 ns) + CELL(0.740 ns) = 2.803 ns; Loc. = LCFF_X23_Y4_N17; Fanout = 4; REG Node = 'VOL[0]'
+        Info: Total cell delay = 1.607 ns ( 57.33 % )
+        Info: Total interconnect delay = 1.196 ns ( 42.67 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "KEY[0]" to destination register is 3.759 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_R22; Fanout = 46; CLK Node = 'KEY[0]'
+            Info: 2: + IC(2.293 ns) + CELL(0.602 ns) = 3.759 ns; Loc. = LCFF_X23_Y4_N17; Fanout = 4; REG Node = 'VOL[0]'
+            Info: Total cell delay = 1.466 ns ( 39.00 % )
+            Info: Total interconnect delay = 2.293 ns ( 61.00 % )
+        Info: - Longest clock path from clock "KEY[0]" to source register is 3.759 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_R22; Fanout = 46; CLK Node = 'KEY[0]'
+            Info: 2: + IC(2.293 ns) + CELL(0.602 ns) = 3.759 ns; Loc. = LCFF_X23_Y4_N21; Fanout = 5; REG Node = 'VOL[2]'
+            Info: Total cell delay = 1.466 ns ( 39.00 % )
+            Info: Total interconnect delay = 2.293 ns ( 61.00 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: Clock "CLOCK_50" has Internal fmax of 210.66 MHz between source register "I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3]" and destination register "I2C_AV_Config:u1|I2C_Controller:u0|SDO" (period= 4.747 ns)
+    Info: + Longest register to register delay is 4.512 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X21_Y5_N27; Fanout = 20; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3]'
+        Info: 2: + IC(0.974 ns) + CELL(0.544 ns) = 1.518 ns; Loc. = LCCOMB_X21_Y4_N2; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|Mux0~503'
+        Info: 3: + IC(0.295 ns) + CELL(0.178 ns) = 1.991 ns; Loc. = LCCOMB_X21_Y4_N14; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|Mux0~504'
+        Info: 4: + IC(0.302 ns) + CELL(0.322 ns) = 2.615 ns; Loc. = LCCOMB_X21_Y4_N24; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|Mux0~505'
+        Info: 5: + IC(0.316 ns) + CELL(0.544 ns) = 3.475 ns; Loc. = LCCOMB_X21_Y4_N26; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|Mux0~508'
+        Info: 6: + IC(0.300 ns) + CELL(0.178 ns) = 3.953 ns; Loc. = LCCOMB_X21_Y4_N10; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|Mux0~512'
+        Info: 7: + IC(0.285 ns) + CELL(0.178 ns) = 4.416 ns; Loc. = LCCOMB_X21_Y4_N30; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|Mux0~513'
+        Info: 8: + IC(0.000 ns) + CELL(0.096 ns) = 4.512 ns; Loc. = LCFF_X21_Y4_N31; Fanout = 4; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|SDO'
+        Info: Total cell delay = 2.040 ns ( 45.21 % )
+        Info: Total interconnect delay = 2.472 ns ( 54.79 % )
+    Info: - Smallest clock skew is 0.004 ns
+        Info: + Shortest clock path from clock "CLOCK_50" to destination register is 6.763 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.642 ns) + CELL(0.879 ns) = 3.547 ns; Loc. = LCFF_X22_Y5_N9; Fanout = 3; REG Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+            Info: 3: + IC(1.625 ns) + CELL(0.000 ns) = 5.172 ns; Loc. = CLKCTRL_G14; Fanout = 44; COMB Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK~clkctrl'
+            Info: 4: + IC(0.989 ns) + CELL(0.602 ns) = 6.763 ns; Loc. = LCFF_X21_Y4_N31; Fanout = 4; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|SDO'
+            Info: Total cell delay = 2.507 ns ( 37.07 % )
+            Info: Total interconnect delay = 4.256 ns ( 62.93 % )
+        Info: - Longest clock path from clock "CLOCK_50" to source register is 6.759 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.642 ns) + CELL(0.879 ns) = 3.547 ns; Loc. = LCFF_X22_Y5_N9; Fanout = 3; REG Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+            Info: 3: + IC(1.625 ns) + CELL(0.000 ns) = 5.172 ns; Loc. = CLKCTRL_G14; Fanout = 44; COMB Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK~clkctrl'
+            Info: 4: + IC(0.985 ns) + CELL(0.602 ns) = 6.759 ns; Loc. = LCFF_X21_Y5_N27; Fanout = 20; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[3]'
+            Info: Total cell delay = 2.507 ns ( 37.09 % )
+            Info: Total interconnect delay = 4.252 ns ( 62.91 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Info: tsu for register "I2C_AV_Config:u1|mI2C_DATA[7]" (data pin = "KEY[0]", clock pin = "CLOCK_50") is 2.965 ns
+    Info: + Longest pin to register delay is 9.765 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.864 ns) = 0.864 ns; Loc. = PIN_R22; Fanout = 46; CLK Node = 'KEY[0]'
+        Info: 2: + IC(6.834 ns) + CELL(0.513 ns) = 8.211 ns; Loc. = LCCOMB_X22_Y4_N20; Fanout = 12; COMB Node = 'I2C_AV_Config:u1|mI2C_DATA[12]~699'
+        Info: 3: + IC(0.796 ns) + CELL(0.758 ns) = 9.765 ns; Loc. = LCFF_X20_Y4_N25; Fanout = 1; REG Node = 'I2C_AV_Config:u1|mI2C_DATA[7]'
+        Info: Total cell delay = 2.135 ns ( 21.86 % )
+        Info: Total interconnect delay = 7.630 ns ( 78.14 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "CLOCK_50" to destination register is 6.762 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.642 ns) + CELL(0.879 ns) = 3.547 ns; Loc. = LCFF_X22_Y5_N9; Fanout = 3; REG Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+        Info: 3: + IC(1.625 ns) + CELL(0.000 ns) = 5.172 ns; Loc. = CLKCTRL_G14; Fanout = 44; COMB Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK~clkctrl'
+        Info: 4: + IC(0.988 ns) + CELL(0.602 ns) = 6.762 ns; Loc. = LCFF_X20_Y4_N25; Fanout = 1; REG Node = 'I2C_AV_Config:u1|mI2C_DATA[7]'
+        Info: Total cell delay = 2.507 ns ( 37.07 % )
+        Info: Total interconnect delay = 4.255 ns ( 62.93 % )
+Info: tco from clock "CLOCK_50" to destination pin "I2C_SCLK" through register "I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1]" is 16.800 ns
+    Info: + Longest clock path from clock "CLOCK_50" to source register is 6.759 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.642 ns) + CELL(0.879 ns) = 3.547 ns; Loc. = LCFF_X22_Y5_N9; Fanout = 3; REG Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+        Info: 3: + IC(1.625 ns) + CELL(0.000 ns) = 5.172 ns; Loc. = CLKCTRL_G14; Fanout = 44; COMB Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK~clkctrl'
+        Info: 4: + IC(0.985 ns) + CELL(0.602 ns) = 6.759 ns; Loc. = LCFF_X21_Y5_N23; Fanout = 14; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1]'
+        Info: Total cell delay = 2.507 ns ( 37.09 % )
+        Info: Total interconnect delay = 4.252 ns ( 62.91 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 9.764 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X21_Y5_N23; Fanout = 14; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|SD_COUNTER[1]'
+        Info: 2: + IC(0.948 ns) + CELL(0.545 ns) = 1.493 ns; Loc. = LCCOMB_X22_Y5_N0; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|I2C_SCLK~253'
+        Info: 3: + IC(0.307 ns) + CELL(0.521 ns) = 2.321 ns; Loc. = LCCOMB_X22_Y5_N18; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|I2C_SCLK~254'
+        Info: 4: + IC(0.308 ns) + CELL(0.178 ns) = 2.807 ns; Loc. = LCCOMB_X22_Y5_N26; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|I2C_SCLK~255'
+        Info: 5: + IC(3.941 ns) + CELL(3.016 ns) = 9.764 ns; Loc. = PIN_A3; Fanout = 0; PIN Node = 'I2C_SCLK'
+        Info: Total cell delay = 4.260 ns ( 43.63 % )
+        Info: Total interconnect delay = 5.504 ns ( 56.37 % )
+Info: Longest tpd from source pin "AUD_ADCDAT" to destination pin "AUD_DACLRCK" is 9.521 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.863 ns) = 0.863 ns; Loc. = PIN_B6; Fanout = 1; PIN Node = 'AUD_ADCDAT'
+    Info: 2: + IC(5.642 ns) + CELL(3.016 ns) = 9.521 ns; Loc. = PIN_A5; Fanout = 0; PIN Node = 'AUD_DACLRCK'
+    Info: Total cell delay = 3.879 ns ( 40.74 % )
+    Info: Total interconnect delay = 5.642 ns ( 59.26 % )
+Info: th for register "I2C_AV_Config:u1|I2C_Controller:u0|ACK3" (data pin = "I2C_SDAT", clock pin = "CLOCK_50") is -1.188 ns
+    Info: + Longest clock path from clock "CLOCK_50" to destination register is 6.759 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 2; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.642 ns) + CELL(0.879 ns) = 3.547 ns; Loc. = LCFF_X22_Y5_N9; Fanout = 3; REG Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK'
+        Info: 3: + IC(1.625 ns) + CELL(0.000 ns) = 5.172 ns; Loc. = CLKCTRL_G14; Fanout = 44; COMB Node = 'I2C_AV_Config:u1|mI2C_CTRL_CLK~clkctrl'
+        Info: 4: + IC(0.985 ns) + CELL(0.602 ns) = 6.759 ns; Loc. = LCFF_X22_Y5_N17; Fanout = 2; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|ACK3'
+        Info: Total cell delay = 2.507 ns ( 37.09 % )
+        Info: Total interconnect delay = 4.252 ns ( 62.91 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 8.233 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_B3; Fanout = 1; PIN Node = 'I2C_SDAT'
+        Info: 2: + IC(0.000 ns) + CELL(0.883 ns) = 0.883 ns; Loc. = IOC_X1_Y27_N3; Fanout = 3; COMB Node = 'I2C_SDAT~1'
+        Info: 3: + IC(6.733 ns) + CELL(0.521 ns) = 8.137 ns; Loc. = LCCOMB_X22_Y5_N16; Fanout = 1; COMB Node = 'I2C_AV_Config:u1|I2C_Controller:u0|ACK3~216'
+        Info: 4: + IC(0.000 ns) + CELL(0.096 ns) = 8.233 ns; Loc. = LCFF_X22_Y5_N17; Fanout = 2; REG Node = 'I2C_AV_Config:u1|I2C_Controller:u0|ACK3'
+        Info: Total cell delay = 1.500 ns ( 18.22 % )
+        Info: Total interconnect delay = 6.733 ns ( 81.78 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Allocated 118 megabytes of memory during processing
+    Info: Processing ended: Thu Aug 30 15:41:15 2007
+    Info: Elapsed time: 00:00:03
+
+

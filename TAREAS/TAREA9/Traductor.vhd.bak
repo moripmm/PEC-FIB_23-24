@@ -1,0 +1,31 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY Traductor IS
+	PORT( SW: IN std_logic_vector(2 DOWNTO 0);
+			tam: OUT std_logic; -- com el tamany de cada lletra es variable afegim una varible de sortida per agafar els "tam" bits de menys pes
+			puls: OUT std_logic_vector(3 DOWNTO 0)); -- 0 són puls curts(0.5s) i 1 són puls llargs (1.5s)
+END Traductor;
+
+ARCHITECTURE Structure OF Traductor IS
+BEGIN
+	with SW select puls <= "1101" when "000", -- 2 ultims bits importants (01)
+								  "1000" when "001",
+								  "1010" when "010",
+								  "1100" when "011", -- 3 ultims bits importants (100)
+								  "1110" when "100", -- ultim bit important (0)
+								  "0010" when "101",
+								  "1110" when "110", -- 3 ultims bits importants (110)
+								  "0000" when "111";
+								  
+								  
+	with SW select tam <=  2 when "000", 
+								  4 when "001",
+								  4 when "010",
+								  3 when "011",
+								  1 when "100",
+								  4 when "101",
+								  3 when "110",
+								  4 when "111";
+END Structure;

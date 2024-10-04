@@ -1,0 +1,14 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_arith.all;
+
+ENTITY Monitoreo IS
+	PORT (
+		
+		
+	);
+END Monitoreo;
+
+ARCHITECTURE Structure OF Monitoreo IS
+
+BEGIN

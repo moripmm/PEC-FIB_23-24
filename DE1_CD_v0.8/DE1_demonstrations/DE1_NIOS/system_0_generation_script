@@ -1,0 +1,5 @@
+#!/bin/sh
+
+C:/altera/quartus60/bin/perl561/bin/perl -I$sopc_builder/bin -I$sopc_builder/bin/perl_lib -I$sopc_builder/bin/europa $sopc_builder/bin/ptf_update.pl system_0.ptf 
+
+C:/altera/quartus60/bin/perl561/bin/perl -I$sopc_builder/bin -I$sopc_builder/bin/perl_lib -I$sopc_builder/bin/europa $sopc_builder/bin/mk_systembus.pl --sopc_directory=$sopc_builder --sopc_perl=C:/altera/quartus60/bin/perl561 --sopc_lib_path="C:/DE1/DE1_NIOS+C:/altera/kits/nios2_51/components+c:/altera/kits/nios2_60+c:/altera/megacore/pci_compiler-v4.1.0/lib/sopc_builder+c:/altera/megacore/ddr_ddr2_sdram-v3.3.0/lib/sopc_builder+c:/altera/quartus60/sopc_builder/components" --target_module_name=system_0 --system_directory=C:/DE1/DE1_NIOS --system_name=system_0 --project_name=DE1_NIOS.quartus --sopc_quartus_dir= $1

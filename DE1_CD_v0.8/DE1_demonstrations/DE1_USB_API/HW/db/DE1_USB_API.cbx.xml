@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="DE1_USB_API">
+		<CBX_INST_ENTRY INSTANCE_NAME="|DE1_USB_API|VGA_OSD_RAM:u9|Img_RAM:u0|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_f7o1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

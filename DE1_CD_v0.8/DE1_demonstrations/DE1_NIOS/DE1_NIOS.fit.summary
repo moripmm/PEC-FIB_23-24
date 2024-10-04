@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Aug 30 15:48:31 2007
+Quartus II Version : 7.1 Build 178 06/25/2007 SP 1 SJ Full Version
+Revision Name : DE1_NIOS
+Top-level Entity Name : DE1_NIOS
+Family : Cyclone II
+Device : EP2C20F484C7
+Timing Models : Final
+Total logic elements : 3,983 / 18,752 ( 21 % )
+    Total combinational functions : 3,543 / 18,752 ( 19 % )
+    Dedicated logic registers : 2,369 / 18,752 ( 13 % )
+Total registers : 2486
+Total pins : 287 / 315 ( 91 % )
+Total virtual pins : 0
+Total memory bits : 75,264 / 239,616 ( 31 % )
+Embedded Multiplier 9-bit elements : 4 / 52 ( 8 % )
+Total PLLs : 1 / 4 ( 25 % )
